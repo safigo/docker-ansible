@@ -9,7 +9,7 @@
 Ansible is great tool for deployment, but one disadvantage is - "python and a lot of dependencies". In my "ideal world", I do not install a lot of dependencies from various programs on my working computer.
 This `docker-ansible` image was created to provide all needed dependencies inside the image and as a result ansible can be used from docker without additional dependencies on local computer.
 
-Docker repository is located [`ghcr.io/aohorodnyk/ansible`](https://github.com/users/aohorodnyk/packages/container/package/ansible) or [`aohorodnyk/ansible`](https://hub.docker.com/r/aohorodnyk/ansible).
+Docker repository is located [`ghcr.io/safigo/ansible`](https://github.com/users/safigo/packages/container/package/ansible) or [`safigo/ansible`](https://hub.docker.com/r/safigo/ansible).
 
 Build docker image with new version scheduled twice per week. Script pushes new image, only when new version of ansible is available.
 
@@ -28,16 +28,16 @@ All patch, minor and major versions are tagged hierarchically, as an example:
 ## Examples
 Running ansible playbook
 ```bash
-$ docker run -v $(pwd):/playbook:ro -v ~/.ssh:/root/.ssh:rw -ti ghcr.io/aohorodnyk/ansible:latest ansible-playbook -i inventory --vault-password-file=.vault_pass playbook.yml
+$ docker run -v $(pwd):/playbook:ro -v ~/.ssh:/root/.ssh:rw -ti ghcr.io/safigo/ansible:latest ansible-playbook -i inventory --vault-password-file=.vault_pass playbook.yml
 ```
 
 Running ansible vault
 ```bash
-$ docker run -v $(pwd):/playbook:rw -v ~/.ssh:/root/.ssh:rw -ti ghcr.io/aohorodnyk/ansible:latest ansible-vault encrypt --vault-password-file=.vault_pass /playbook/secrets/secret.key
+$ docker run -v $(pwd):/playbook:rw -v ~/.ssh:/root/.ssh:rw -ti ghcr.io/safigo/ansible:latest ansible-vault encrypt --vault-password-file=.vault_pass /playbook/secrets/secret.key
 ```
 
 ## Contributing
-All contributions have to follow the [CONTRIBUTING.md document](https://github.com/aohorodnyk/uid/blob/main/CONTRIBUTING.md)
+All contributions have to follow the [CONTRIBUTING.md document](https://github.com/safigo/uid/blob/main/CONTRIBUTING.md)
 If you have any questions/issues/feature requests do not hesitate to create a ticket.
 
 Before contrbution, make sure that githook is configured for you and all your commits contain the correct issue tag.
@@ -49,9 +49,3 @@ Before you start the contribution, make sure that you are on the correct branch.
 - `1-my_feature`
 - `2-fix_bug`
 - `234-my_important_pr`
-
-### Git Hook
-
-To configure the git hook, you need to simply run the command: `git config core.hooksPath .githooks`
-
-It will configure the git hook to run the `pre-commit` script. Source code of the hook is in `.githooks/prepare-commit-msg`.

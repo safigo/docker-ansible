@@ -1,8 +1,5 @@
 FROM alpine:latest
 
-LABEL MAINTAINER "Anton Ohorodnyk <me@aohorodnyk.com>"
-LABEL org.opencontainers.image.description "Ansible image for CI/CD pipelines."
-
 ENV PIP_BREAK_SYSTEM_PACKAGES 1
 
 WORKDIR /playbook
